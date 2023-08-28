@@ -2,7 +2,7 @@ import Container from "@/src/components/Container/Container";
 import Image from "next/image";
 import React from "react";
 import map from "@/public/assets/map.svg";
-import Sponsored from "@/public/assets/sponsored.svg";
+import Sponsored from "@/public/assets/Sponsored.svg";
 
 const Location = () => {
   return (
