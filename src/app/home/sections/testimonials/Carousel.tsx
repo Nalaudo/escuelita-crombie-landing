@@ -85,7 +85,7 @@ export const Carousel = () => {
           return (
             <button
               onClick={() => scrollToSelectedCard(index)}
-              key={testimonial.fullName}
+              key={testimonial.testimonial}
               className={`flex flex-col items-center justify-center gap-5 min-w-[33.333333%] border-2 rounded-xl p-5 ${
                 index === selectedCardIndex
                   ? "border-red-500"
