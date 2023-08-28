@@ -73,8 +73,6 @@ export const Carousel = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
 
-  console.log(data);
-
   return (
     <div className="flex flex-col justify-center items-center w-full gap-5">
       <div
