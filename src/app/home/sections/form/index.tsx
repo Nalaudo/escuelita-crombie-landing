@@ -45,7 +45,10 @@ const Form = () => {
   };
 
   return (
-    <Container id="help" className="flex flex-col items-center justify-center">
+    <Container
+      id="help"
+      className="flex flex-col items-center justify-center pb-20"
+    >
       <div className="flex flex-col items-center justify-center gap-10">
         <h4 className="text-3xl font-semibold text-center">
           SEND US A MESSAGE
