@@ -1,5 +1,7 @@
+"use client";
 import Logo from "@/public/assets/Logo.svg";
 import Container from "@/src/components/Container/Container";
+import { useTheme } from "@/src/context/ThemeContext";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,13 +14,21 @@ const NavBar = () => {
     { href: "#testimonials", label: "Testimonials" },
     { href: "#help", label: "Help" },
   ];
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <Container className="flex text-black bg-white fixed top-0 w-full z-50 justify-center border-b-2">
+    <Container
+      className={`flex ${
+        theme === "light" ? "text-black bg-white" : "text-white bg-black"
+      } fixed top-0 w-full z-50 justify-center border-b-2`}
+    >
       <nav>
         <div className="flex items-center w-full py-3 justify-between mx-auto">
-          <Link href={"/"} className="flex items-center gap-5">
+          <Link href={"/"} className="flex items-center justify-center gap-5">
             <Image src={Logo} alt="logo" />
+            <h1 className="text-xl font-bold">
+              Lasles<strong>VPN</strong>
+            </h1>
           </Link>
           <ul className="flex gap-8 text-lg">
             {links.map((element) => {
@@ -30,6 +40,7 @@ const NavBar = () => {
             })}
           </ul>
           <ul className="flex gap-8 items-center text-lg">
+            <button onClick={toggleTheme}>Theme</button>
             <Link href={"/sign-in"}>
               <strong>Sign In</strong>
             </Link>

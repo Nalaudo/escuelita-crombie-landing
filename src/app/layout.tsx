@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import NavBar from "../components/layout/navbar/NavBar";
 import Footer from "../components/layout/footer/Footer";
 import { ReactQueryProvider } from "../components/ReactQueryProvider";
+import { ThemeProvider } from "../context/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,13 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <ReactQueryProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <NavBar />
-          {children}
-          <Footer />
-        </body>
-      </html>
+      <ThemeProvider>
+        <html lang="en">
+          <body className={inter.className}>
+            <NavBar />
+            {children}
+            <Footer />
+          </body>
+        </html>
+      </ThemeProvider>
     </ReactQueryProvider>
   );
 }

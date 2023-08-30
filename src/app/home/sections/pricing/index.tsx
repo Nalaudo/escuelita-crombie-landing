@@ -5,6 +5,7 @@ import Plan1SVG from "@/public/assets/Plan1.svg";
 import Plan2SVG from "@/public/assets/Plan2.svg";
 import Plan3SVG from "@/public/assets/Plan3.svg";
 import Image from "next/image";
+import { useTheme } from "@/src/context/ThemeContext";
 
 type FetchedData = {
   title: string;
@@ -13,6 +14,7 @@ type FetchedData = {
 };
 
 const Pricing = () => {
+  const { theme } = useTheme();
   const {
     isLoading,
     error,
@@ -29,7 +31,9 @@ const Pricing = () => {
   return (
     <Container
       id="pricing"
-      className="flex items-center justify-center h-screen"
+      className={`flex items-center justify-center h-screen ${
+        theme === "light" ? "text-black bg-white" : "text-white bg-black"
+      }`}
     >
       <div className="flex flex-col items-center gap-5 py-20">
         <h4 className="text-3xl font-semibold">Choose Your Plan</h4>

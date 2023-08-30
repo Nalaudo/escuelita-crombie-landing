@@ -1,14 +1,19 @@
+"use client";
 import Container from "@/src/components/Container/Container";
 import Image from "next/image";
 import React from "react";
 import map from "@/public/assets/map.svg";
 import Sponsored from "@/public/assets/Sponsored.svg";
+import { useTheme } from "@/src/context/ThemeContext";
 
 const Location = () => {
+  const { theme } = useTheme();
   return (
     <Container
       id="location"
-      className="h-screen flex items-center justify-center"
+      className={`h-screen flex items-center justify-center ${
+        theme === "light" ? "text-black bg-white" : "text-white bg-black"
+      }`}
       childClassName="h-full"
     >
       <div className="flex flex-col items-center justify-center h-full gap-20">

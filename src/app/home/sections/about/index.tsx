@@ -1,13 +1,21 @@
+"use client";
 import Container from "@/src/components/Container/Container";
 import Image from "next/image";
 import Image1 from "@/public/assets/Image1.svg";
 import Users from "@/public/assets/Users.svg";
 import Locations from "@/public/assets/Locations.svg";
 import Servers from "@/public/assets/Servers.svg";
+import { useTheme } from "@/src/context/ThemeContext";
 
 const About = () => {
+  const { theme } = useTheme();
   return (
-    <Container id="about" className="flex flex-col items-center py-20">
+    <Container
+      id="about"
+      className={`flex flex-col items-center py-20 ${
+        theme === "light" ? "text-black bg-white" : "text-white bg-black"
+      }`}
+    >
       <div className="flex flex-row items-center justify-between py-20">
         <div className="max-w-[50%]">
           <div className="flex flex-col w-11/12 gap-5">

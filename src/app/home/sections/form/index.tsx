@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Container from "@/src/components/Container/Container";
+import { useTheme } from "@/src/context/ThemeContext";
 
 type FormValues = {
   firstName: string;
@@ -43,11 +44,13 @@ const Form = () => {
       }
     ).then((res) => res.json());
   };
-
+  const { theme } = useTheme();
   return (
     <Container
       id="help"
-      className="flex flex-col items-center justify-center pb-20"
+      className={`flex flex-col items-center justify-center pb-20 ${
+        theme === "light" ? "text-black bg-white" : "text-white bg-black"
+      }`}
     >
       <div className="flex flex-col items-center justify-center gap-10">
         <h4 className="text-3xl font-semibold text-center">

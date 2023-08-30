@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Container from "../../Container/Container";
 import Link from "next/link";
@@ -6,10 +7,16 @@ import Logo from "@/public/assets/Logo.svg";
 import Facebook from "@/public/assets/Facebook.svg";
 import Twitter from "@/public/assets/Twitter.svg";
 import Instagram from "@/public/assets/Instagram.svg";
+import { useTheme } from "@/src/context/ThemeContext";
 
 const Footer = () => {
+  const { theme } = useTheme();
   return (
-    <Container className="flex items-center justify-center min-h-96">
+    <Container
+      className={`flex items-center justify-center min-h-96 ${
+        theme === "light" ? "text-black bg-white" : "text-white bg-black"
+      }`}
+    >
       <div className="flex justify-between h-96">
         <div className="flex flex-col w-1/3 gap-8">
           <Link href={"/"} className="flex items-center gap-5">

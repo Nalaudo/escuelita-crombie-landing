@@ -1,12 +1,17 @@
+"use client";
 import Image2 from "@/public/assets/Image2.svg";
 import Container from "@/src/components/Container/Container";
+import { useTheme } from "@/src/context/ThemeContext";
 import Image from "next/image";
 
 const Features = () => {
+  const { theme } = useTheme();
   return (
     <Container
       id="features"
-      className="flex justify-center items-center bg-gray-100 py-28"
+      className={`flex justify-center items-center py-28 ${
+        theme === "light" ? "text-black bg-gray-100" : "text-white bg-black"
+      }`}
     >
       <div className="flex flex-row items-center justify-between">
         <div className="max-w-[50%]">
