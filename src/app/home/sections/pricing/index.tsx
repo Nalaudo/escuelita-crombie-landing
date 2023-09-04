@@ -31,23 +31,26 @@ const Pricing = () => {
   return (
     <Container
       id="pricing"
-      className={`flex items-center justify-center h-screen ${
-        theme === "light" ? "text-black bg-white" : "text-white bg-black"
+      className={`flex items-center justify-center min-h-[50vh] py-10 ${
+        theme === "light" ? "text-black bg-white" : "text-white bg-zinc-900"
       }`}
+      childClassName="flex flex-col items-center justify-center gap-10 w-full"
     >
-      <div className="flex flex-col items-center gap-5 py-20">
-        <h4 className="text-3xl font-semibold">Choose Your Plan</h4>
-        <p>
+      <div className="flex flex-col items-center gap-5 px-5 md:px-0">
+        <h4 className="text-4xl md:text-5xl font-bold leading-normal text-center md:text-left">
+          Choose Your Plan
+        </h4>
+        <p className="text-base leading-[1.75] text-center md:text-left">
           Let&apos;s choose the package that is best for you and explore it
           happily and cheerfully.
         </p>
       </div>
-      <div className="flex flex-row items-center justify-between w-full">
+      <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-5 lg:gap-0">
         {data.map((plan, index) => {
           return (
             <div
               key={plan.title}
-              className={`flex flex-col items-center justify-between border-2 w-[30%] h-[70rem] gap-10 py-32 rounded-xl ${
+              className={`flex flex-col items-center justify-between border-2 w-5/6 lg:w-[30%] h-[50rem] gap-10 py-10 rounded-xl ${
                 index === data.length - 1 ? "border-red-500" : "border-gray-300"
               }`}
             >

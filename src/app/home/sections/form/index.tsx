@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -45,11 +45,18 @@ const Form = () => {
     ).then((res) => res.json());
   };
   const { theme } = useTheme();
+
+  const [message, setMessage] = useState("");
+
+  if (message.length > 2000) {
+    setMessage(message.slice(0, 2000));
+  }
+
   return (
     <Container
       id="help"
-      className={`flex flex-col items-center justify-center pb-20 ${
-        theme === "light" ? "text-black bg-white" : "text-white bg-black"
+      className={`flex flex-col items-center justify-center pb-20 h-fit w-full overflow-hidden ${
+        theme === "light" ? "text-black bg-white" : "text-white bg-zinc-900"
       }`}
     >
       <div className="flex flex-col items-center justify-center gap-10">
@@ -60,7 +67,7 @@ const Form = () => {
           className="flex flex-col gap-5 items-center justify-center"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="flex flex-row items-center justify-center">
+          <div className="flex flex-col lg:flex-row items-center justify-center">
             <div>
               <input
                 className="border-2 border-gray-400 rounded-lg p-1 m-2"
@@ -112,12 +119,19 @@ const Form = () => {
             <textarea
               className="border-2 border-gray-400 rounded-lg p-1 m-2"
               rows={5}
-              cols={50}
+              cols={30}
+              value={message}
               placeholder="Message"
-              {...register("message", { required: true })}
+              {...register("message", {
+                required: true,
+                onChange: (e) => {
+                  setMessage(e.target.value);
+                },
+              })}
             />
+            <p className="text-center">{message.length}/2000</p>
             <div className="text-red-500">
-              {errors.message && "Message is required"}
+              {errors.message && "Message is required"}{" "}
             </div>
           </div>
           <input

@@ -84,7 +84,7 @@ export const Carousel = () => {
             <button
               onClick={() => scrollToSelectedCard(index)}
               key={testimonial.testimonial}
-              className={`flex flex-col items-center justify-center gap-5 min-w-[33.333333%] border-2 rounded-xl p-5 ${
+              className={`flex flex-col items-center justify-center gap-5 min-w-[90%] lg:min-w-[33.333333%] border-2 rounded-xl p-5 ${
                 index === selectedCardIndex
                   ? "border-red-500"
                   : "border-gray-300"
@@ -105,8 +105,8 @@ export const Carousel = () => {
           );
         })}
       </div>
-      <div className="flex w-3/4 justify-between">
-        <div className="flex gap-5 items-center">
+      <div className="flex w-3/4 justify-center items-center lg:justify-between">
+        <div className="hidden lg:flex gap-5 items-center">
           {data.map((_: FetchedData, index: number) => (
             <span
               key={index}

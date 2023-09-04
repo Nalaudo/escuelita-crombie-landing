@@ -8,8 +8,8 @@ const Testimonials = () => {
   return (
     <Container
       id="testimonials"
-      className={`h-[50vh] flex items-center justify-center ${
-        theme === "light" ? "text-black bg-white" : "text-white bg-black"
+      className={`min-h-[50vh] flex items-center justify-center pb-20 ${
+        theme === "light" ? "text-black bg-white" : "text-white bg-zinc-900"
       }`}
       childClassName="h-full"
     >

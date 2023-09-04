@@ -11,19 +11,19 @@ const Location = () => {
   return (
     <Container
       id="location"
-      className={`h-screen flex items-center justify-center ${
-        theme === "light" ? "text-black bg-white" : "text-white bg-black"
+      className={`min-h-[50vh] flex items-center justify-center ${
+        theme === "light" ? "text-black bg-white" : "text-white bg-zinc-900"
       }`}
       childClassName="h-full"
     >
       <div className="flex flex-col items-center justify-center h-full gap-20">
         <div className="flex flex-col items-center justify-center gap-8">
-          <h4 className="text-4xl text-center font-semibold w-1/2">
-            International software development company
+          <h4 className="text-4xl md:text-5xl font-bold leading-normal text-center md:text-left">
+            Huge Global Network of Fast VPN
           </h4>
-          <p className="text-xl">
-            From América to Europ, find <strong>Crombie</strong> software
-            everywhere.
+          <p className="text-base leading-[1.75] text-center">
+            See <strong>LaslesVPN</strong> everywhere to make it easier for you
+            when you move locations.
           </p>
         </div>
         <div className="flex items-center justify-center">

@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <Container
       className={`flex items-center justify-center min-h-96 ${
-        theme === "light" ? "text-black bg-white" : "text-white bg-black"
+        theme === "light" ? "text-black bg-white" : "text-white bg-zinc-900"
       }`}
     >
       <div className="flex justify-between h-96">
